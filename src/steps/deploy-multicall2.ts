@@ -1,7 +1,9 @@
-import UniswapInterfaceMulticall from '@uniswap/v3-periphery/artifacts/contracts/lens/UniswapInterfaceMulticall.sol/UniswapInterfaceMulticall.json'
+import UniswapInterfaceMulticall from 'v3-periphery/artifacts-zk/contracts/lens/UniswapInterfaceMulticall.sol/UniswapInterfaceMulticall.json'
 import createDeployContractStep from './meta/createDeployContractStep'
 
 export const DEPLOY_MULTICALL2 = createDeployContractStep({
   key: 'multicall2Address',
-  artifact: UniswapInterfaceMulticall,
+  computeArtifact() {
+    return UniswapInterfaceMulticall
+  }
 })

@@ -1,9 +1,11 @@
-import V3Migrator from '@uniswap/v3-periphery/artifacts/contracts/V3Migrator.sol/V3Migrator.json'
+import V3Migrator from 'v3-periphery/artifacts-zk/contracts/V3Migrator.sol/V3Migrator.json'
 import createDeployContractStep from './meta/createDeployContractStep'
 
 export const DEPLOY_V3_MIGRATOR = createDeployContractStep({
   key: 'v3MigratorAddress',
-  artifact: V3Migrator,
+  computeArtifact() {
+    return V3Migrator
+  },
   computeArguments(state, config) {
     if (state.v3CoreFactoryAddress === undefined) {
       throw new Error('Missing V3 Core Factory')

@@ -1,0 +1,4 @@
+[submodule "v3-periphery-1_3_0"]
+	path = v3-periphery-1_3_0
+	url = https://github.com/AntonD3/v3-periphery.git
+	branch = v1.3.0-zksync-era

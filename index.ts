@@ -1,6 +1,6 @@
 import { program } from 'commander'
-import { Wallet } from '@ethersproject/wallet'
-import { JsonRpcProvider, TransactionReceipt } from '@ethersproject/providers'
+import { Wallet, Provider } from 'zksync-web3'
+import { TransactionResponse } from '@ethersproject/providers'
 import { AddressZero } from '@ethersproject/constants'
 import { getAddress } from '@ethersproject/address'
 import fs from 'fs'
@@ -21,7 +21,6 @@ program
   .option('-s, --state <path>', 'Path to the JSON file containing the migrations state (optional)', './state.json')
   .option('-v2, --v2-core-factory-address <address>', 'The V2 core factory address used in the swap router (optional)')
   .option('-g, --gas-price <number>', 'The gas price to pay in GWEI for each transaction (optional)')
-  .option('-c, --confirmations <number>', 'How many confirmations to wait for after each transaction (optional)', '2')
 
 program.name('npx @uniswap/deploy-v3').version(version).parse(process.argv)
 
@@ -90,7 +89,7 @@ try {
   process.exit(1)
 }
 
-const wallet = new Wallet(program.privateKey, new JsonRpcProvider({ url: url.href }))
+const wallet = new Wallet(program.privateKey, new Provider({ url: url.href }))
 
 let state: MigrationState
 if (fs.existsSync(program.state)) {
@@ -131,9 +130,9 @@ async function run() {
     // wait 15 minutes for any transactions sent in the step
     await Promise.all(
       result.map(
-        (stepResult): Promise<TransactionReceipt | true> => {
+        async (stepResult): Promise<TransactionResponse | true> => {
           if (stepResult.hash) {
-            return wallet.provider.waitForTransaction(stepResult.hash, confirmations, /* 15 minutes */ 1000 * 60 * 15)
+            return await wallet._providerL2().getTransaction(stepResult.hash);
           } else {
             return Promise.resolve(true)
           }

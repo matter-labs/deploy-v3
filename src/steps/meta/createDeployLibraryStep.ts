@@ -1,4 +1,5 @@
-import { ContractInterface, ContractFactory } from '@ethersproject/contracts'
+import { ContractInterface } from '@ethersproject/contracts'
+import { ContractFactory } from 'zksync-web3'
 import { MigrationState, MigrationStep } from '../../migrations'
 
 export default function createDeployLibraryStep({

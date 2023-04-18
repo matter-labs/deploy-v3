@@ -1,40 +1,35 @@
-import { Contract, ContractInterface, ContractFactory } from '@ethersproject/contracts'
+import { ContractInterface } from '@ethersproject/contracts'
+import { Contract, ContractFactory } from 'zksync-web3'
 import { MigrationConfig, MigrationState, MigrationStep } from '../../migrations'
-import linkLibraries from '../../util/linkLibraries'
 
 type ConstructorArgs = (string | number | string[] | number[])[]
 
 export default function createDeployContractStep({
   key,
-  artifact: { contractName, abi, bytecode, linkReferences },
-  computeLibraries,
+  computeArtifact,
   computeArguments,
 }: {
   key: keyof MigrationState
-  artifact: {
+  computeArtifact: (state: Readonly<MigrationState>, config: MigrationConfig) => {
     contractName: string
     abi: ContractInterface
     bytecode: string
     linkReferences?: { [fileName: string]: { [contractName: string]: { length: number; start: number }[] } }
   }
-  computeLibraries?: (state: Readonly<MigrationState>, config: MigrationConfig) => { [libraryName: string]: string }
   computeArguments?: (state: Readonly<MigrationState>, config: MigrationConfig) => ConstructorArgs
 }): MigrationStep {
-  if (linkReferences && Object.keys(linkReferences).length > 0 && !computeLibraries) {
-    throw new Error('Missing function to compute library addresses')
-  } else if (computeLibraries && (!linkReferences || Object.keys(linkReferences).length === 0)) {
-    throw new Error('Compute libraries passed but no link references')
-  }
 
   return async (state, config) => {
+    const { contractName, abi, bytecode, linkReferences } = computeArtifact(state, config)
     if (state[key] === undefined) {
       const constructorArgs: ConstructorArgs = computeArguments ? computeArguments(state, config) : []
+      if (linkReferences && Object.keys(linkReferences).length > 0) {
+        throw new Error('Missing function to compute library addresses')
+      }
 
       const factory = new ContractFactory(
         abi,
-        linkReferences && computeLibraries
-          ? linkLibraries({ bytecode, linkReferences }, computeLibraries(state, config))
-          : bytecode,
+        bytecode,
         config.signer
       )
 

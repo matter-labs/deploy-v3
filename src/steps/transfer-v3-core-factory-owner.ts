@@ -1,5 +1,5 @@
-import UniswapV3Factory from '@uniswap/v3-core/artifacts/contracts/UniswapV3Factory.sol/UniswapV3Factory.json'
-import { Contract } from '@ethersproject/contracts'
+import UniswapV3Factory from 'v3-core/artifacts-zk/contracts/UniswapV3Factory.sol/UniswapV3Factory.json'
+import { Contract } from 'zksync-web3'
 import { MigrationStep } from '../migrations'
 
 export const TRANSFER_V3_CORE_FACTORY_OWNER: MigrationStep = async (state, { signer, gasPrice, ownerAddress }) => {

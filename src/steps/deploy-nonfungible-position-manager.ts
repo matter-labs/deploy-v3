@@ -1,9 +1,11 @@
-import NonfungiblePositionManager from '@uniswap/v3-periphery/artifacts/contracts/NonfungiblePositionManager.sol/NonfungiblePositionManager.json'
+import NonfungiblePositionManager from 'v3-periphery/artifacts-zk/contracts/NonfungiblePositionManager.sol/NonfungiblePositionManager.json'
 import createDeployContractStep from './meta/createDeployContractStep'
 
 export const DEPLOY_NONFUNGIBLE_POSITION_MANAGER = createDeployContractStep({
   key: 'nonfungibleTokenPositionManagerAddress',
-  artifact: NonfungiblePositionManager,
+  computeArtifact() {
+    return NonfungiblePositionManager
+  },
   computeArguments(state, config) {
     if (state.v3CoreFactoryAddress === undefined) {
       throw new Error('Missing V3 Core Factory')
