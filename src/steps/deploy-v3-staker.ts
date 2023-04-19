@@ -14,7 +14,7 @@ const MAX_INCENTIVE_DURATION = ONE_YEAR_SECONDS * 2
 
 export const DEPLOY_V3_STAKER = createDeployContractStep({
   key: 'v3StakerAddress',
-  computeArtifact() {
+  async computeArtifact() {
     return UniswapV3Staker
   },
   computeArguments(state) {

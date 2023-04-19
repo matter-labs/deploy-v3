@@ -3,7 +3,7 @@ import createDeployContractStep from './meta/createDeployContractStep'
 
 export const DEPLOY_TICK_LENS = createDeployContractStep({
   key: 'tickLensAddress',
-  computeArtifact() {
+  async computeArtifact() {
     return TickLens
   },
 })

@@ -3,7 +3,7 @@ import createDeployContractStep from './meta/createDeployContractStep'
 
 export const DEPLOY_MULTICALL2 = createDeployContractStep({
   key: 'multicall2Address',
-  computeArtifact() {
+  async computeArtifact() {
     return UniswapInterfaceMulticall
   }
 })

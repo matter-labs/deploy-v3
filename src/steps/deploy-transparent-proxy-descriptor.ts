@@ -3,7 +3,7 @@ import createDeployContractStep from './meta/createDeployContractStep'
 
 export const DEPLOY_TRANSPARENT_PROXY_DESCRIPTOR = createDeployContractStep({
   key: 'descriptorProxyAddress',
-  computeArtifact() {
+  async computeArtifact() {
     return TransparentUpgradeableProxy
   },
   computeArguments(state) {

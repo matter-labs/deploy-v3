@@ -3,7 +3,7 @@ import createDeployContractStep from './meta/createDeployContractStep'
 
 export const DEPLOY_V3_MIGRATOR = createDeployContractStep({
   key: 'v3MigratorAddress',
-  computeArtifact() {
+  async computeArtifact() {
     return V3Migrator
   },
   computeArguments(state, config) {

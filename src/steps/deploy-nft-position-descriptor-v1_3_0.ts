@@ -1,17 +1,19 @@
 import createDeployContractStep from './meta/createDeployContractStep'
-import { execSync } from 'child_process'
-import fs from 'fs';
+const hre = require("hardhat")
 
 export const DEPLOY_NFT_POSITION_DESCRIPTOR_V1_3_0 = createDeployContractStep({
   key: 'nonfungibleTokenPositionDescriptorAddressV1_3_0',
-  computeArtifact(state) {
+  async computeArtifact(state) {
     if (state.nftDescriptorLibraryAddressV1_3_0 === undefined) {
       throw new Error('NFTDescriptor library missing')
     }
-    process.env.NFT_DESCRIPTOR_ADDRESS = state.nftDescriptorLibraryAddressV1_3_0
-    execSync('yarn --cwd v3-periphery-1_3_0 hardhat compile --network zkSyncTestnet')
-    const file = fs.readFileSync('v3-periphery-1_3_0/artifacts-zk/contracts/NonfungibleTokenPositionDescriptor.sol/NonfungibleTokenPositionDescriptor.json')
-    return JSON.parse(file.toString())
+    hre.config.zksolc.settings.libraries = {
+      "v3-periphery-1_3_0/contracts/libraries/NFTDescriptor.sol": {
+        NFTDescriptor: state.nftDescriptorLibraryAddressV1_3_0,
+      },
+    }
+    await hre.run("compile")
+    return hre.artifacts.readArtifactSync('NonfungibleTokenPositionDescriptor')
   },
   computeArguments(_, { weth9Address, nativeCurrencyLabelBytes }) {
     return [weth9Address, nativeCurrencyLabelBytes]

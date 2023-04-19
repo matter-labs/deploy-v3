@@ -3,7 +3,7 @@ import createDeployContractStep from './meta/createDeployContractStep'
 
 export const DEPLOY_V3_CORE_FACTORY = createDeployContractStep({
   key: 'v3CoreFactoryAddress',
-  computeArtifact() {
+  async computeArtifact() {
     return UniswapV3Factory
   },
 })

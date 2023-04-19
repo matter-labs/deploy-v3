@@ -3,7 +3,7 @@ import createDeployContractStep from './meta/createDeployContractStep'
 
 export const DEPLOY_QUOTER_V2 = createDeployContractStep({
   key: 'quoterV2Address',
-  computeArtifact() {
+  async computeArtifact() {
     return QuoterV2
   },
   computeArguments(state, config) {

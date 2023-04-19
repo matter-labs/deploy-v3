@@ -3,7 +3,7 @@ import createDeployContractStep from './meta/createDeployContractStep'
 
 export const DEPLOY_NONFUNGIBLE_POSITION_MANAGER = createDeployContractStep({
   key: 'nonfungibleTokenPositionManagerAddress',
-  computeArtifact() {
+  async computeArtifact() {
     return NonfungiblePositionManager
   },
   computeArguments(state, config) {

@@ -10,17 +10,17 @@ export default function createDeployContractStep({
   computeArguments,
 }: {
   key: keyof MigrationState
-  computeArtifact: (state: Readonly<MigrationState>, config: MigrationConfig) => {
+  computeArtifact: (state: Readonly<MigrationState>, config: MigrationConfig) => Promise<{
     contractName: string
     abi: ContractInterface
     bytecode: string
     linkReferences?: { [fileName: string]: { [contractName: string]: { length: number; start: number }[] } }
-  }
+  }>
   computeArguments?: (state: Readonly<MigrationState>, config: MigrationConfig) => ConstructorArgs
 }): MigrationStep {
 
   return async (state, config) => {
-    const { contractName, abi, bytecode, linkReferences } = computeArtifact(state, config)
+    const { contractName, abi, bytecode, linkReferences } = await computeArtifact(state, config)
     if (state[key] === undefined) {
       const constructorArgs: ConstructorArgs = computeArguments ? computeArguments(state, config) : []
       if (linkReferences && Object.keys(linkReferences).length > 0) {

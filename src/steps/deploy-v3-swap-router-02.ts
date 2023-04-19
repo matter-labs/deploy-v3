@@ -3,7 +3,7 @@ import createDeployContractStep from './meta/createDeployContractStep'
 
 export const DEPLOY_V3_SWAP_ROUTER_02 = createDeployContractStep({
   key: 'swapRouter02',
-  computeArtifact() {
+  async computeArtifact() {
     return SwapRouter02
   },
   computeArguments(state, config) {
