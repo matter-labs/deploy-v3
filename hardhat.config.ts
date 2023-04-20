@@ -2,7 +2,6 @@ import '@matterlabs/hardhat-zksync-solc'
 import 'hardhat-dependency-compiler'
 
 export default {
-  defaultNetwork: 'zkSyncTestnet',
   networks: {
     hardhat: {
       allowUnlimitedContractSize: false,
@@ -13,6 +12,11 @@ export default {
       ethNetwork: `https://goerli.infura.io/v3/${process.env.INFURA_API_KEY}`,
       zksync: true,
     },
+    zkSyncLocalhost: {
+      url: "http://localhost:3050",
+      ethNetwork: "http://localhost:8545",
+      zksync: true,
+    }
   },
   solidity: {
     version: '0.7.6',
@@ -32,7 +36,7 @@ export default {
   },
   dependencyCompiler: {
     paths: [
-      'v3-periphery-1_3_0/contracts/NonfungibleTokenPositionDescriptor.sol',
+      'v3-core/contracts/UniswapV3Factory.sol',
     ],
   },
 }

@@ -12,6 +12,7 @@ export const DEPLOY_NFT_POSITION_DESCRIPTOR_V1_3_0 = createDeployContractStep({
         NFTDescriptor: state.nftDescriptorLibraryAddressV1_3_0,
       },
     }
+    hre.config.dependencyCompiler.paths = ['v3-periphery-1_3_0/contracts/NonfungibleTokenPositionDescriptor.sol']
     await hre.run("compile")
     return hre.artifacts.readArtifactSync('NonfungibleTokenPositionDescriptor')
   },
