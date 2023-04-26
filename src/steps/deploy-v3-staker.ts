@@ -1,6 +1,6 @@
 import UniswapV3Staker from 'v3-staker/artifacts-zk/contracts/UniswapV3Staker.sol/UniswapV3Staker.json'
 import createDeployContractStep from './meta/createDeployContractStep'
-import {ZkSyncArtifact} from "@matterlabs/hardhat-zksync-deploy/src/types";
+import { ZkSyncArtifact } from '@matterlabs/hardhat-zksync-deploy/src/types'
 
 const ONE_MINUTE_SECONDS = 60
 const ONE_HOUR_SECONDS = ONE_MINUTE_SECONDS * 60
@@ -16,7 +16,9 @@ const MAX_INCENTIVE_DURATION = ONE_YEAR_SECONDS * 2
 export const DEPLOY_V3_STAKER = createDeployContractStep({
   key: 'v3StakerAddress',
   async computeArtifact() {
-    return UniswapV3Staker as ZkSyncArtifact
+    return {
+      artifact: UniswapV3Staker as ZkSyncArtifact
+    }
   },
   computeArguments(state) {
     if (state.v3CoreFactoryAddress === undefined) {
