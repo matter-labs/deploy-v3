@@ -134,13 +134,13 @@ export async function deployV3(args: any) {
   } catch (error) {
     console.error('Deployment failed', error)
     console.log('Final state')
-    console.log(JSON.stringify(finalState))
+    console.log(JSON.stringify(finalState!))
     process.exit(1)
   }
 
   console.log('Deployment succeeded')
   console.log(JSON.stringify(results))
   console.log('Final state')
-  console.log(JSON.stringify(finalState))
+  console.log(JSON.stringify(finalState!))
   process.exit(0)
 }
