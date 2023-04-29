@@ -111,5 +111,5 @@ dist
 artifacts-zk/
 cache-zk/
 
-# local zksync setup
+# zksync local setup
 local-setup/

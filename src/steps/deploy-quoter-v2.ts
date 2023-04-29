@@ -1,4 +1,4 @@
-import QuoterV2 from 'swap-router-contracts/artifacts-zk/contracts/lens/QuoterV2.sol/QuoterV2.json'
+import QuoterV2 from '@uniswap/swap-router-contracts/artifacts-zk/contracts/lens/QuoterV2.sol/QuoterV2.json'
 import createDeployContractStep from './meta/createDeployContractStep'
 import { ZkSyncArtifact } from '@matterlabs/hardhat-zksync-deploy/src/types'
 

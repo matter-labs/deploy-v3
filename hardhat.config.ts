@@ -1,4 +1,5 @@
 import '@matterlabs/hardhat-zksync-solc'
+import '@matterlabs/hardhat-zksync-verify'
 import 'hardhat-dependency-compiler'
 import { task } from 'hardhat/config'
 import {deployV3} from './index'
@@ -38,7 +39,11 @@ export default {
   zksolc: {
     version: "1.3.10",
     compilerSource: "binary",
-    settings: {},
+    settings: {
+      metadata: {
+        bytecodeHash: 'none',
+      },
+    },
   },
   dependencyCompiler: {
     paths: [

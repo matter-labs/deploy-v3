@@ -1,4 +1,4 @@
-import TransparentUpgradeableProxy from 'openzeppelin-contracts/artifacts-zk/contracts/proxy/TransparentUpgradeableProxy.sol/TransparentUpgradeableProxy.json'
+import TransparentUpgradeableProxy from 'openzeppelin-solidity/artifacts-zk/contracts/proxy/TransparentUpgradeableProxy.sol/TransparentUpgradeableProxy.json'
 import createDeployContractStep from './meta/createDeployContractStep'
 import { ZkSyncArtifact } from '@matterlabs/hardhat-zksync-deploy/src/types'
 

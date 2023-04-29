@@ -1,4 +1,4 @@
-import UniswapV3Factory from 'v3-core/artifacts-zk/contracts/UniswapV3Factory.sol/UniswapV3Factory.json'
+import UniswapV3Factory from '@uniswap/v3-core/artifacts-zk/contracts/UniswapV3Factory.sol/UniswapV3Factory.json'
 import { Contract } from 'zksync-web3'
 import { MigrationStep } from '../migrations'
 

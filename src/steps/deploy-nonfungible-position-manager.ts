@@ -1,4 +1,4 @@
-import NonfungiblePositionManager from 'v3-periphery/artifacts-zk/contracts/NonfungiblePositionManager.sol/NonfungiblePositionManager.json'
+import NonfungiblePositionManager from '@uniswap/v3-periphery/artifacts-zk/contracts/NonfungiblePositionManager.sol/NonfungiblePositionManager.json'
 import createDeployContractStep from './meta/createDeployContractStep'
 import { ZkSyncArtifact } from '@matterlabs/hardhat-zksync-deploy/src/types'
 

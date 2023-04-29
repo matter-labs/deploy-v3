@@ -1,4 +1,4 @@
-import SwapRouter02 from 'swap-router-contracts/artifacts-zk/contracts/SwapRouter02.sol/SwapRouter02.json'
+import SwapRouter02 from '@uniswap/swap-router-contracts/artifacts-zk/contracts/SwapRouter02.sol/SwapRouter02.json'
 import createDeployContractStep from './meta/createDeployContractStep'
 import { ZkSyncArtifact } from '@matterlabs/hardhat-zksync-deploy/src/types'
 

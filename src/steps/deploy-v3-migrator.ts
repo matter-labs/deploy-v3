@@ -1,4 +1,4 @@
-import V3Migrator from 'v3-periphery/artifacts-zk/contracts/V3Migrator.sol/V3Migrator.json'
+import V3Migrator from '@uniswap/v3-periphery/artifacts-zk/contracts/V3Migrator.sol/V3Migrator.json'
 import createDeployContractStep from './meta/createDeployContractStep'
 import { ZkSyncArtifact } from '@matterlabs/hardhat-zksync-deploy/src/types'
 

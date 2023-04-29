@@ -1,4 +1,4 @@
-import UniswapV3Staker from 'v3-staker/artifacts-zk/contracts/UniswapV3Staker.sol/UniswapV3Staker.json'
+import UniswapV3Staker from '@uniswap/v3-staker/artifacts-zk/contracts/UniswapV3Staker.sol/UniswapV3Staker.json'
 import createDeployContractStep from './meta/createDeployContractStep'
 import { ZkSyncArtifact } from '@matterlabs/hardhat-zksync-deploy/src/types'
 
