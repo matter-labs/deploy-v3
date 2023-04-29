@@ -56,7 +56,7 @@ export default function createDeployContractStep({
 
       return [
         {
-          message: `Contract ${artifact.contractName} deployed`,
+          message: `Contract ${artifact.contractName} deployed, constructor args: ${constructorArgs}`,
           address: contract.address,
           hash: contract.deployTransaction.hash,
         },
