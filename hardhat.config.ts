@@ -1,8 +1,7 @@
 import '@matterlabs/hardhat-zksync-solc'
-import '@matterlabs/hardhat-zksync-verify'
 import 'hardhat-dependency-compiler'
 import { task } from 'hardhat/config'
-import {deployV3} from './index'
+import { deployV3 } from './index'
 
 task('deploy-v3')
   .addParam('privateKey', 'Private key used to deploy all contracts')
@@ -21,21 +20,15 @@ task('deploy-v3')
 export default {
   networks: {
     hardhat: {
-      allowUnlimitedContractSize: false,
       zksync: true,
     },
-    zkSyncTestnet: {
-      url: "https://testnet.era.zksync.dev",
-      ethNetwork: `https://goerli.infura.io/v3/${process.env.INFURA_API_KEY}`,
-      zksync: true,
-      verifyURL: 'https://zksync2-testnet-explorer.zksync.dev/contract_verification'
-    }
   },
   solidity: {
     version: '0.7.6',
     settings: {
       optimizer: {
         enabled: true,
+        runs: 1_000_000,
       },
       metadata: {
         bytecodeHash: 'none',
@@ -43,7 +36,7 @@ export default {
     },
   },
   zksolc: {
-    version: "1.3.10",
+    version: "1.3.12",
     compilerSource: "binary",
     settings: {
       metadata: {

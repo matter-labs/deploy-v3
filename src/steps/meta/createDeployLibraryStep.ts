@@ -1,7 +1,6 @@
-import { ContractInterface } from '@ethersproject/contracts'
 import { ContractFactory } from 'zksync-web3'
 import { MigrationState, MigrationStep } from '../../migrations'
-import {ZkSyncArtifact} from '@matterlabs/hardhat-zksync-deploy/src/types'
+import { ZkSyncArtifact } from '@matterlabs/hardhat-zksync-deploy/src/types'
 
 export default function createDeployLibraryStep({
   key,
@@ -22,7 +21,10 @@ export default function createDeployLibraryStep({
           signer
       )
 
-      const library = await factory.deploy({ gasPrice })
+      const library = await factory.deploy({
+        maxFeePerGas: gasPrice,
+        maxPriorityFeePerGas: 0,
+      })
       state[key] = library.address
 
       return [

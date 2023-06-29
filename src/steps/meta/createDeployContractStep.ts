@@ -41,8 +41,8 @@ export default function createDeployContractStep({
       let contract: zk.Contract
       try {
         contract = await factory.deploy(...constructorArgs, {
-          // TODO: check gas price
-          gasPrice: config.gasPrice,
+          maxFeePerGas: config.gasPrice,
+          maxPriorityFeePerGas: 0,
           customData: {
             factoryDeps,
           },
