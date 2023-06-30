@@ -1107,7 +1107,7 @@
 
 "@uniswap/swap-router-contracts@https://github.com/AntonD3/swap-router-contracts.git#v1.1.0-zksync-era":
   version "1.1.0"
-  resolved "https://github.com/AntonD3/swap-router-contracts.git#6364993ed1bfa161aab0e42a2682e9d1337597fe"
+  resolved "https://github.com/AntonD3/swap-router-contracts.git#79e4fba0e5f1e371a98e9270dca7081467ae104b"
   dependencies:
     "@openzeppelin/contracts" "3.4.1-solc-0.7-2"
     "@uniswap/v2-core" "https://github.com/AntonD3/v2-core.git#v1.0.1-zksync-era"
@@ -1117,15 +1117,15 @@
 
 "@uniswap/v2-core@https://github.com/AntonD3/v2-core.git#v1.0.1-zksync-era":
   version "1.0.1"
-  resolved "https://github.com/AntonD3/v2-core.git#0ce72c31df25108e7301536085eca9f00460301e"
+  resolved "https://github.com/AntonD3/v2-core.git#bf8f5db636135f4fd11edc439d39acc60042c553"
 
 "@uniswap/v3-core@https://github.com/AntonD3/v3-core.git#v1.0.0-zksync-era":
   version "1.0.0"
-  resolved "https://github.com/AntonD3/v3-core.git#32a847aba1aa842012b11491a65cac86bef1b7a8"
+  resolved "https://github.com/AntonD3/v3-core.git#ad482a4cb91c86c97c63d99caa9c6267403e5d38"
 
 "@uniswap/v3-periphery@https://github.com/AntonD3/v3-periphery.git#v1.0.1-zksync-era":
   version "1.0.1"
-  resolved "https://github.com/AntonD3/v3-periphery.git#91785066548d5bcd854e927b5675a9920ca3b206"
+  resolved "https://github.com/AntonD3/v3-periphery.git#1371437511a2b2731e6bfd2a49bea816cb630860"
   dependencies:
     "@openzeppelin/contracts" "3.4.1-solc-0.7-2"
     "@uniswap/lib" "^4.0.1-alpha"
@@ -1135,7 +1135,7 @@
 
 "@uniswap/v3-periphery@https://github.com/AntonD3/v3-periphery.git#v1.1.1-zksync-era":
   version "1.1.1"
-  resolved "https://github.com/AntonD3/v3-periphery.git#a3f1812de05fdce95b3bbdb864ace02ed1316799"
+  resolved "https://github.com/AntonD3/v3-periphery.git#d3b9add20017042174e5703668a0157a245f97cd"
   dependencies:
     "@openzeppelin/contracts" "3.4.1-solc-0.7-2"
     "@uniswap/lib" "^4.0.1-alpha"
@@ -1146,7 +1146,7 @@
 
 "@uniswap/v3-periphery@https://github.com/AntonD3/v3-periphery.git#v1.3.0-zksync-era", "v3-periphery-1_3_0@https://github.com/AntonD3/v3-periphery.git#v1.3.0-zksync-era":
   version "1.3.0"
-  resolved "https://github.com/AntonD3/v3-periphery.git#be9380ab4bdac90b376fdee155d08a530b84f87b"
+  resolved "https://github.com/AntonD3/v3-periphery.git#25519e9ac02170cdb488c7d80313364008c2cb7c"
   dependencies:
     "@openzeppelin/contracts" "3.4.1-solc-0.7-2"
     "@uniswap/lib" "^4.0.1-alpha"
@@ -1157,7 +1157,7 @@
 
 "@uniswap/v3-staker@https://github.com/AntonD3/v3-staker.git#v1.0.2-zksync-era":
   version "1.0.2"
-  resolved "https://github.com/AntonD3/v3-staker.git#b9b30e4743f008240678db31765cc831ac52c7a3"
+  resolved "https://github.com/AntonD3/v3-staker.git#70340e41b9ec451bc9e3a6ab3bda74e959f0ca5f"
   dependencies:
     "@openzeppelin/contracts" "3.4.1-solc-0.7-2"
     "@uniswap/v3-core" "https://github.com/AntonD3/v3-core.git#v1.0.0-zksync-era"
@@ -2804,7 +2804,7 @@ once@^1.3.0, once@^1.3.1, once@^1.4.0:
 
 "openzeppelin-solidity@https://github.com/AntonD3/openzeppelin-contracts.git#v3.4.1-solc-0.7-2-zksync-era":
   version "3.4.1-solc-0.7-2"
-  resolved "https://github.com/AntonD3/openzeppelin-contracts.git#e13aea3a30419bb0e8643c97f6aa1e808b4f159a"
+  resolved "https://github.com/AntonD3/openzeppelin-contracts.git#109acc0b754fc4f34bd2981b82d8642a63f84946"
 
 os-tmpdir@~1.0.2:
   version "1.0.2"
