@@ -17,7 +17,7 @@ export const DEPLOY_V3_STAKER = createDeployContractStep({
   key: 'v3StakerAddress',
   async computeArtifact() {
     return {
-      artifact: UniswapV3Staker as ZkSyncArtifact
+      artifact: UniswapV3Staker as ZkSyncArtifact,
     }
   },
   computeArguments(state) {

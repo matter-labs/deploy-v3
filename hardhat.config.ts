@@ -17,6 +17,7 @@ task('deploy-v3')
     await deployV3(taskArgs)
   })
 
+// This config will be used to compile the `v3-periphery-1_3_0/contracts/NonfungibleTokenPositionDescriptor.sol` contract
 export default {
   networks: {
     hardhat: {
@@ -36,8 +37,8 @@ export default {
     },
   },
   zksolc: {
-    version: "1.3.13",
-    compilerSource: "binary",
+    version: '1.3.13',
+    compilerSource: 'binary',
     settings: {
       metadata: {
         bytecodeHash: 'none',
@@ -45,8 +46,6 @@ export default {
     },
   },
   dependencyCompiler: {
-    paths: [
-      'v3-periphery-1_3_0/contracts/NonfungibleTokenPositionDescriptor.sol',
-    ],
+    paths: ['v3-periphery-1_3_0/contracts/NonfungibleTokenPositionDescriptor.sol'],
   },
 }

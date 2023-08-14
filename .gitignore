@@ -110,6 +110,3 @@ dist
 # hardhat
 artifacts-zk/
 cache-zk/
-
-# zksync local setup
-local-setup/

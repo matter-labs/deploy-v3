@@ -6,7 +6,7 @@ export const DEPLOY_V3_MIGRATOR = createDeployContractStep({
   key: 'v3MigratorAddress',
   async computeArtifact() {
     return {
-      artifact: V3Migrator as ZkSyncArtifact
+      artifact: V3Migrator as ZkSyncArtifact,
     }
   },
   computeArguments(state, config) {

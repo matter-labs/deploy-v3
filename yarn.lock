@@ -1105,68 +1105,63 @@
     tiny-warning "^1.0.3"
     toformat "^2.0.0"
 
-"@uniswap/swap-router-contracts@https://github.com/AntonD3/swap-router-contracts.git#v1.1.0-zksync-era":
+"@uniswap/swap-router-contracts@https://github.com/matter-labs/swap-router-contracts.git#v1.1.0-zksync-era":
   version "1.1.0"
-  resolved "https://github.com/AntonD3/swap-router-contracts.git#79e4fba0e5f1e371a98e9270dca7081467ae104b"
+  resolved "https://github.com/matter-labs/swap-router-contracts.git#055c7b9ddcbc0b4bde15fa8bdd1acd8b40e3b5bb"
   dependencies:
     "@openzeppelin/contracts" "3.4.1-solc-0.7-2"
-    "@uniswap/v2-core" "https://github.com/AntonD3/v2-core.git#v1.0.1-zksync-era"
-    "@uniswap/v3-core" "https://github.com/AntonD3/v3-core.git#v1.0.0-zksync-era"
-    "@uniswap/v3-periphery" "https://github.com/AntonD3/v3-periphery.git#v1.3.0-zksync-era"
+    "@uniswap/v2-core" "https://github.com/matter-labs/v2-core.git#v1.0.1-zksync-era"
+    "@uniswap/v3-core" "https://github.com/matter-labs/v3-core.git#v1.0.0-zksync-era"
+    "@uniswap/v3-periphery" "https://github.com/matter-labs/v3-periphery.git#v1.3.0-zksync-era"
     hardhat-watcher "^2.1.1"
 
-"@uniswap/v2-core@https://github.com/AntonD3/v2-core.git#v1.0.1-zksync-era":
+"@uniswap/v2-core@https://github.com/matter-labs/v2-core.git#v1.0.1-zksync-era":
   version "1.0.1"
-  resolved "https://github.com/AntonD3/v2-core.git#bf8f5db636135f4fd11edc439d39acc60042c553"
+  resolved "https://github.com/matter-labs/v2-core.git#8d4de891341d2a234f598403c6e3b0cc69af58ea"
 
-"@uniswap/v3-core@https://github.com/AntonD3/v3-core.git#v1.0.0-zksync-era":
+"@uniswap/v3-core@https://github.com/matter-labs/v3-core.git#v1.0.0-zksync-era":
   version "1.0.0"
-  resolved "https://github.com/AntonD3/v3-core.git#ad482a4cb91c86c97c63d99caa9c6267403e5d38"
+  resolved "https://github.com/matter-labs/v3-core.git#04edd15144fdb9a54c44fd2c7efb5735e26f9106"
 
-"@uniswap/v3-periphery@https://github.com/AntonD3/v3-periphery.git#v1.0.1-zksync-era":
+"@uniswap/v3-periphery@https://github.com/matter-labs/v3-periphery.git#v1.0.1-zksync-era":
   version "1.0.1"
-  resolved "https://github.com/AntonD3/v3-periphery.git#1371437511a2b2731e6bfd2a49bea816cb630860"
+  resolved "https://github.com/matter-labs/v3-periphery.git#12e0a85045600dac4def059b00c8b5fb4ba0eb60"
   dependencies:
     "@openzeppelin/contracts" "3.4.1-solc-0.7-2"
     "@uniswap/lib" "^4.0.1-alpha"
-    "@uniswap/v2-core" "https://github.com/AntonD3/v2-core.git#v1.0.1-zksync-era"
-    "@uniswap/v3-core" "https://github.com/AntonD3/v3-core.git#v1.0.0-zksync-era"
+    "@uniswap/v2-core" "https://github.com/matter-labs/v2-core.git#v1.0.1-zksync-era"
+    "@uniswap/v3-core" "https://github.com/matter-labs/v3-core.git#v1.0.0-zksync-era"
     base64-sol "1.0.1"
 
-"@uniswap/v3-periphery@https://github.com/AntonD3/v3-periphery.git#v1.1.1-zksync-era":
+"@uniswap/v3-periphery@https://github.com/matter-labs/v3-periphery.git#v1.1.1-zksync-era":
   version "1.1.1"
-  resolved "https://github.com/AntonD3/v3-periphery.git#d3b9add20017042174e5703668a0157a245f97cd"
+  resolved "https://github.com/matter-labs/v3-periphery.git#bbc590002601dda3cb1854631c3bded133e42fe1"
   dependencies:
     "@openzeppelin/contracts" "3.4.1-solc-0.7-2"
     "@uniswap/lib" "^4.0.1-alpha"
-    "@uniswap/v2-core" "https://github.com/AntonD3/v2-core.git#v1.0.1-zksync-era"
-    "@uniswap/v3-core" "https://github.com/AntonD3/v3-core.git#v1.0.0-zksync-era"
+    "@uniswap/v2-core" "https://github.com/matter-labs/v2-core.git#v1.0.1-zksync-era"
+    "@uniswap/v3-core" "https://github.com/matter-labs/v3-core.git#v1.0.0-zksync-era"
     base64-sol "1.0.1"
     hardhat-watcher "^2.1.1"
 
-"@uniswap/v3-periphery@https://github.com/AntonD3/v3-periphery.git#v1.3.0-zksync-era", "v3-periphery-1_3_0@https://github.com/AntonD3/v3-periphery.git#v1.3.0-zksync-era":
+"@uniswap/v3-periphery@https://github.com/matter-labs/v3-periphery.git#v1.3.0-zksync-era", "v3-periphery-1_3_0@https://github.com/matter-labs/v3-periphery.git#v1.3.0-zksync-era":
   version "1.3.0"
-  resolved "https://github.com/AntonD3/v3-periphery.git#25519e9ac02170cdb488c7d80313364008c2cb7c"
+  resolved "https://github.com/matter-labs/v3-periphery.git#86c2da9e78fd4d536437689acbff60c27adec046"
   dependencies:
     "@openzeppelin/contracts" "3.4.1-solc-0.7-2"
     "@uniswap/lib" "^4.0.1-alpha"
-    "@uniswap/v2-core" "https://github.com/AntonD3/v2-core.git#v1.0.1-zksync-era"
-    "@uniswap/v3-core" "https://github.com/AntonD3/v3-core.git#v1.0.0-zksync-era"
+    "@uniswap/v2-core" "https://github.com/matter-labs/v2-core.git#v1.0.1-zksync-era"
+    "@uniswap/v3-core" "https://github.com/matter-labs/v3-core.git#v1.0.0-zksync-era"
     base64-sol "1.0.1"
     hardhat-watcher "^2.1.1"
 
-"@uniswap/v3-staker@https://github.com/AntonD3/v3-staker.git#v1.0.2-zksync-era":
+"@uniswap/v3-staker@https://github.com/matter-labs/v3-staker.git#v1.0.2-zksync-era":
   version "1.0.2"
-  resolved "https://github.com/AntonD3/v3-staker.git#70340e41b9ec451bc9e3a6ab3bda74e959f0ca5f"
+  resolved "https://github.com/matter-labs/v3-staker.git#114a30d37fe2b6f5d63c295ac4302f814ea12ff9"
   dependencies:
     "@openzeppelin/contracts" "3.4.1-solc-0.7-2"
-    "@uniswap/v3-core" "https://github.com/AntonD3/v3-core.git#v1.0.0-zksync-era"
-    "@uniswap/v3-periphery" "https://github.com/AntonD3/v3-periphery.git#v1.0.1-zksync-era"
-
-"@vercel/ncc@^0.33.1":
-  version "0.33.1"
-  resolved "https://registry.npmjs.org/@vercel/ncc/-/ncc-0.33.1.tgz"
-  integrity sha512-Mlsps/P0PLZwsCFtSol23FGqT3FhBGb4B1AuGQ52JTAtXhak+b0Fh/4T55r0/SVQPeRiX9pNItOEHwakGPmZYA==
+    "@uniswap/v3-core" "https://github.com/matter-labs/v3-core.git#v1.0.0-zksync-era"
+    "@uniswap/v3-periphery" "https://github.com/matter-labs/v3-periphery.git#v1.0.1-zksync-era"
 
 JSONStream@1.3.2:
   version "1.3.2"
@@ -1675,11 +1670,6 @@ commander@3.0.2:
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/commander/-/commander-3.0.2.tgz#6837c3fb677ad9933d1cfba42dd14d5117d6b39e"
   integrity sha512-Gar0ASD4BDyKC4hl4DwHqDrmvjoxWKZigVnAbn5H1owvm4CxCPdb0HQDehwNYMJpla5+M2tPmPARzhtYuwpHow==
-
-commander@^6.1.0:
-  version "6.2.1"
-  resolved "https://registry.npmjs.org/commander/-/commander-6.2.1.tgz"
-  integrity sha512-U7VdrJFnJgo4xjrHpTzu0yrHPGImdsmD95ZlgYSEajAn2JKzDhDTPG9kBTefmObL2w/ngeZnilk+OV9CG3d7UA==
 
 concat-map@0.0.1:
   version "0.0.1"
@@ -2802,9 +2792,9 @@ once@^1.3.0, once@^1.3.1, once@^1.4.0:
   dependencies:
     wrappy "1"
 
-"openzeppelin-solidity@https://github.com/AntonD3/openzeppelin-contracts.git#v3.4.1-solc-0.7-2-zksync-era":
+"openzeppelin-solidity@https://github.com/matter-labs/era-openzeppelin.git#v3.4.1-solc-0.7-2":
   version "3.4.1-solc-0.7-2"
-  resolved "https://github.com/AntonD3/openzeppelin-contracts.git#109acc0b754fc4f34bd2981b82d8642a63f84946"
+  resolved "https://github.com/matter-labs/era-openzeppelin.git#ac816067010378b877cf147477c2b7cd93fec3c1"
 
 os-tmpdir@~1.0.2:
   version "1.0.2"

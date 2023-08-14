@@ -6,7 +6,7 @@ export const DEPLOY_PROXY_ADMIN = createDeployContractStep({
   key: 'proxyAdminAddress',
   async computeArtifact() {
     return {
-      artifact: ProxyAdmin as ZkSyncArtifact
+      artifact: ProxyAdmin as ZkSyncArtifact,
     }
   },
 })

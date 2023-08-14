@@ -8,9 +8,7 @@ export const DEPLOY_V3_CORE_FACTORY = createDeployContractStep({
   async computeArtifact() {
     return {
       artifact: UniswapV3Factory as any,
-      factoryDepsArtifacts: [
-          UniswapV3Pool as ZkSyncArtifact
-      ]
+      factoryDepsArtifacts: [UniswapV3Pool as ZkSyncArtifact],
     }
   },
 })

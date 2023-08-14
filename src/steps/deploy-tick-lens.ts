@@ -6,7 +6,7 @@ export const DEPLOY_TICK_LENS = createDeployContractStep({
   key: 'tickLensAddress',
   async computeArtifact() {
     return {
-      artifact: TickLens as ZkSyncArtifact
+      artifact: TickLens as ZkSyncArtifact,
     }
   },
 })

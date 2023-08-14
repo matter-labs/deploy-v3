@@ -6,7 +6,7 @@ export const DEPLOY_MULTICALL2 = createDeployContractStep({
   key: 'multicall2Address',
   async computeArtifact() {
     return {
-      artifact: UniswapInterfaceMulticall as ZkSyncArtifact
+      artifact: UniswapInterfaceMulticall as ZkSyncArtifact,
     }
-  }
+  },
 })

@@ -15,11 +15,7 @@ export default function createDeployLibraryStep({
         throw new Error('Factory deps for the library: `' + artifact.contractName + '` is not empty')
       }
 
-      const factory = new ContractFactory(
-          artifact.abi,
-          artifact.bytecode,
-          signer
-      )
+      const factory = new ContractFactory(artifact.abi, artifact.bytecode, signer)
 
       const library = await factory.deploy({
         maxFeePerGas: gasPrice,

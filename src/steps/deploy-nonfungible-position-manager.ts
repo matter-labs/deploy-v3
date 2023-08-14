@@ -6,7 +6,7 @@ export const DEPLOY_NONFUNGIBLE_POSITION_MANAGER = createDeployContractStep({
   key: 'nonfungibleTokenPositionManagerAddress',
   async computeArtifact() {
     return {
-      artifact: NonfungiblePositionManager as ZkSyncArtifact
+      artifact: NonfungiblePositionManager as ZkSyncArtifact,
     }
   },
   computeArguments(state, config) {

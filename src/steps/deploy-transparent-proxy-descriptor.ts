@@ -6,7 +6,7 @@ export const DEPLOY_TRANSPARENT_PROXY_DESCRIPTOR = createDeployContractStep({
   key: 'descriptorProxyAddress',
   async computeArtifact() {
     return {
-      artifact: TransparentUpgradeableProxy as ZkSyncArtifact
+      artifact: TransparentUpgradeableProxy as ZkSyncArtifact,
     }
   },
   computeArguments(state) {

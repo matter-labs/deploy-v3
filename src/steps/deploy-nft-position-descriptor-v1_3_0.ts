@@ -14,7 +14,7 @@ export const DEPLOY_NFT_POSITION_DESCRIPTOR_V1_3_0 = createDeployContractStep({
     }
     await hre.run('compile')
     return {
-      artifact: hre.artifacts.readArtifactSync('NonfungibleTokenPositionDescriptor')
+      artifact: hre.artifacts.readArtifactSync('NonfungibleTokenPositionDescriptor'),
     }
   },
   computeArguments(_, { weth9Address, nativeCurrencyLabelBytes }) {

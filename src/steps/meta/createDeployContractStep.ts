@@ -1,6 +1,6 @@
 import * as zk from 'zksync-web3'
 import * as ethers from 'ethers'
-import { ZkSyncArtifact} from '@matterlabs/hardhat-zksync-deploy/src/types'
+import { ZkSyncArtifact } from '@matterlabs/hardhat-zksync-deploy/src/types'
 import { MigrationConfig, MigrationState, MigrationStep } from '../../migrations'
 
 type ConstructorArgs = (string | number | string[] | number[])[]
@@ -11,15 +11,17 @@ export default function createDeployContractStep({
   computeArguments,
 }: {
   key: keyof MigrationState
-  computeArtifact: (state: Readonly<MigrationState>, config: MigrationConfig) => Promise<{
-    artifact: ZkSyncArtifact,
+  computeArtifact: (
+    state: Readonly<MigrationState>,
+    config: MigrationConfig
+  ) => Promise<{
+    artifact: ZkSyncArtifact
     factoryDepsArtifacts?: ZkSyncArtifact[]
   }>
   computeArguments?: (state: Readonly<MigrationState>, config: MigrationConfig) => ConstructorArgs
 }): MigrationStep {
-
   return async (state, config) => {
-    let {artifact, factoryDepsArtifacts} = await computeArtifact(state, config)
+    let { artifact, factoryDepsArtifacts } = await computeArtifact(state, config)
     factoryDepsArtifacts = factoryDepsArtifacts ? factoryDepsArtifacts : []
 
     if (state[key] === undefined) {
@@ -32,11 +34,7 @@ export default function createDeployContractStep({
       visited.add(`${artifact.sourceName}:${artifact.contractName}`)
       let factoryDeps: string[] = extractFactoryDeps(artifact, factoryDepsArtifacts, visited)
 
-      const factory = new zk.ContractFactory(
-        artifact.abi,
-        artifact.bytecode,
-        config.signer
-      )
+      const factory = new zk.ContractFactory(artifact.abi, artifact.bytecode, config.signer)
 
       let contract: zk.Contract
       try {
@@ -56,8 +54,9 @@ export default function createDeployContractStep({
 
       return [
         {
-          message: `Contract ${artifact.contractName} deployed, constructor args: ${constructorArgs}`,
+          message: `Contract ${artifact.contractName} deployed`,
           address: contract.address,
+          constructorArgs: constructorArgs,
           hash: contract.deployTransaction.hash,
         },
       ]
@@ -67,16 +66,22 @@ export default function createDeployContractStep({
   }
 }
 
-function extractFactoryDeps(artifact: ZkSyncArtifact, knownArtifacts: ZkSyncArtifact[], visited: Set<string>): string[] {
+function extractFactoryDeps(
+  artifact: ZkSyncArtifact,
+  knownArtifacts: ZkSyncArtifact[],
+  visited: Set<string>
+): string[] {
   const factoryDeps: string[] = []
 
   for (const dependencyHash in artifact.factoryDeps) {
     const dependencyContract = artifact.factoryDeps[dependencyHash]
 
     if (!visited.has(dependencyContract)) {
-      const dependencyArtifact = knownArtifacts.find(dependencyArtifact => {
-        return dependencyArtifact.sourceName + ':' + dependencyArtifact.contractName === dependencyContract &&
+      const dependencyArtifact = knownArtifacts.find((dependencyArtifact) => {
+        return (
+          dependencyArtifact.sourceName + ':' + dependencyArtifact.contractName === dependencyContract &&
           ethers.utils.hexlify(zk.utils.hashBytecode(dependencyArtifact.bytecode)) === dependencyHash
+        )
       })
       if (dependencyArtifact === undefined) {
         throw new Error('Dependency: `' + dependencyContract + '` is not found')

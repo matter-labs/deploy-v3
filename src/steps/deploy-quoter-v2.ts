@@ -6,7 +6,7 @@ export const DEPLOY_QUOTER_V2 = createDeployContractStep({
   key: 'quoterV2Address',
   async computeArtifact() {
     return {
-      artifact: QuoterV2 as ZkSyncArtifact
+      artifact: QuoterV2 as ZkSyncArtifact,
     }
   },
   computeArguments(state, config) {

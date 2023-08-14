@@ -7,17 +7,16 @@ import { expect } from 'chai'
 import { DEPLOY_V3_CORE_FACTORY } from '../src/steps/deploy-v3-core-factory'
 import { asciiStringToBytes32 } from '../src/util/asciiStringToBytes32'
 
-import * as fs from 'fs'
-
+const ERA_TEST_NODE_IP = 'http://localhost:8011'
 const DUMMY_ADDRESS = '0x9999999999999999999999999999999999999999'
-const RICH_WALLET_PRIVATE_KEY = JSON.parse(fs.readFileSync(`./local-setup/rich-wallets.json`, "utf8"))[0];
+const RICH_WALLET_PRIVATE_KEY = '0x7726827caac94a7f9e1b160f7ea819f172f7b6f9d2a97f992c38edeab82d4110'
 
 describe('deploy-v3-core-factory', () => {
   let provider: Provider
   let signer: Wallet
 
   before('create provider', () => {
-    provider = Provider.getDefaultProvider()
+    provider = new Provider(ERA_TEST_NODE_IP)
     signer = new Wallet(RICH_WALLET_PRIVATE_KEY, provider)
   })
 
@@ -32,7 +31,7 @@ describe('deploy-v3-core-factory', () => {
           {},
           {
             signer,
-            gasPrice: BigNumber.from(1),
+            gasPrice: BigNumber.from(250_000_000),
             ownerAddress: DUMMY_ADDRESS,
             v2CoreFactoryAddress: DUMMY_ADDRESS,
             weth9Address: DUMMY_ADDRESS,
@@ -49,7 +48,7 @@ describe('deploy-v3-core-factory', () => {
           { v3CoreFactoryAddress: DUMMY_ADDRESS },
           {
             signer,
-            gasPrice: BigNumber.from(1),
+            gasPrice: BigNumber.from(250_000_000),
             ownerAddress: DUMMY_ADDRESS,
             v2CoreFactoryAddress: DUMMY_ADDRESS,
             weth9Address: DUMMY_ADDRESS,
@@ -69,7 +68,7 @@ describe('deploy-v3-core-factory', () => {
             {},
             {
               signer,
-              gasPrice: BigNumber.from(1),
+              gasPrice: BigNumber.from(250_000_000),
               ownerAddress: DUMMY_ADDRESS,
               v2CoreFactoryAddress: DUMMY_ADDRESS,
               weth9Address: DUMMY_ADDRESS,

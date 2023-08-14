@@ -6,7 +6,7 @@ export const DEPLOY_V3_SWAP_ROUTER_02 = createDeployContractStep({
   key: 'swapRouter02',
   async computeArtifact() {
     return {
-      artifact: SwapRouter02 as ZkSyncArtifact
+      artifact: SwapRouter02 as ZkSyncArtifact,
     }
   },
   computeArguments(state, config) {

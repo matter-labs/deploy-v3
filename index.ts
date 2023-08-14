@@ -4,7 +4,7 @@ import { AddressZero } from '@ethersproject/constants'
 import { getAddress } from '@ethersproject/address'
 import fs from 'fs'
 import deploy from './src/deploy'
-import {MigrationState, StepOutput} from './src/migrations'
+import { MigrationState, StepOutput } from './src/migrations'
 import { asciiStringToBytes32 } from './src/util/asciiStringToBytes32'
 
 export async function deployV3(args: any) {
@@ -73,12 +73,12 @@ export async function deployV3(args: any) {
     process.exit(1)
   }
 
-  const wallet = new Wallet(args.privateKey, new Provider({url: url.href}))
+  const wallet = new Wallet(args.privateKey, new Provider({ url: url.href }))
 
   let state: MigrationState
   if (fs.existsSync(args.state)) {
     try {
-      state = JSON.parse(fs.readFileSync(args.state, {encoding: 'utf8'}))
+      state = JSON.parse(fs.readFileSync(args.state, { encoding: 'utf8' }))
     } catch (error) {
       console.error('Failed to load and parse migration state file', (error as Error).message)
       process.exit(1)
@@ -113,15 +113,15 @@ export async function deployV3(args: any) {
 
       // wait 15 minutes for any transactions sent in the step
       await Promise.all(
-          result.map(
-              (stepResult): Promise<TransactionReceipt | true> => {
-                if (stepResult.hash) {
-                  return wallet.provider.waitForTransaction(stepResult.hash, confirmations, /* 15 minutes */ 1000 * 60 * 15)
-                } else {
-                  return Promise.resolve(true)
-                }
-              }
-          )
+        result.map(
+          (stepResult): Promise<TransactionReceipt | true> => {
+            if (stepResult.hash) {
+              return wallet.provider.waitForTransaction(stepResult.hash, confirmations, /* 15 minutes */ 1000 * 60 * 15)
+            } else {
+              return Promise.resolve(true)
+            }
+          }
+        )
       )
     }
 

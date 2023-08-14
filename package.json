@@ -1,30 +1,21 @@
 {
   "name": "@uniswap/deploy-v3",
   "version": "1.0.4",
-  "description": "Deploy Uniswap V3 smart contracts",
-  "bin": "dist/index.js",
+  "description": "Deploy Uniswap V3 smart contracts on zkSyncEra",
   "publishConfig": {
     "access": "restricted"
   },
   "main": "dist/index.js",
   "scripts": {
     "test": "mocha",
-    "build": "ncc build index.ts -o dist -m",
-    "postbuild": "cat shebang.txt dist/index.js > dist/index.cmd.js && mv dist/index.cmd.js dist/index.js",
-    "prestart": "yarn build",
-    "start": "yarn hardhat deploy-v3",
-    "prepublishOnly": "yarn build",
-    "local-setup": "./scripts/start-local-setup.sh"
+    "start": "yarn hardhat deploy-v3"
   },
-  "files": [
-    "dist/"
-  ],
   "engines": {
     "node": ">=12.18.3"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Uniswap/deploy-v3.git"
+    "url": "git+https://github.com/matter-labs/deploy-v3.git"
   },
   "author": {
     "email": "contact@uniswap.org",
@@ -33,7 +24,7 @@
   },
   "license": "GPL-3.0-or-later",
   "bugs": {
-    "url": "https://github.com/Uniswap/deploy-v3/issues"
+    "url": "https://github.com/matter-labs/deploy-v3/issues"
   },
   "homepage": "https://uniswap.org",
   "devDependencies": {
@@ -50,23 +41,21 @@
     "@types/mocha": "^8.0.3",
     "@types/node": "^14.6.3",
     "@uniswap/sdk-core": "^1.0.8",
-    "@uniswap/swap-router-contracts": "https://github.com/AntonD3/swap-router-contracts.git#v1.1.0-zksync-era",
-    "@uniswap/v3-core": "https://github.com/AntonD3/v3-core.git#v1.0.0-zksync-era",
-    "@uniswap/v3-periphery": "https://github.com/AntonD3/v3-periphery.git#v1.1.1-zksync-era",
-    "@uniswap/v3-staker": "https://github.com/AntonD3/v3-staker.git#v1.0.2-zksync-era",
-    "@vercel/ncc": "^0.33.1",
+    "@uniswap/swap-router-contracts": "https://github.com/matter-labs/swap-router-contracts.git#v1.1.0-zksync-era",
+    "@uniswap/v3-core": "https://github.com/matter-labs/v3-core.git#v1.0.0-zksync-era",
+    "@uniswap/v3-periphery": "https://github.com/matter-labs/v3-periphery.git#v1.1.1-zksync-era",
+    "@uniswap/v3-staker": "https://github.com/matter-labs/v3-staker.git#v1.0.2-zksync-era",
     "chai": "^4.2.0",
-    "commander": "^6.1.0",
     "ethers": "5.7.0",
     "hardhat": "^2.14.0",
     "hardhat-dependency-compiler": "^1.1.3",
     "immer": "^7.0.8",
     "mocha": "^8.1.3",
-    "openzeppelin-solidity": "https://github.com/AntonD3/openzeppelin-contracts.git#v3.4.1-solc-0.7-2-zksync-era",
+    "openzeppelin-solidity": "https://github.com/matter-labs/era-openzeppelin.git#v3.4.1-solc-0.7-2",
     "prettier": "^2.1.1",
     "ts-node": "^9.0.0",
     "typescript": "^4.0.2",
-    "v3-periphery-1_3_0": "https://github.com/AntonD3/v3-periphery.git#v1.3.0-zksync-era",
+    "v3-periphery-1_3_0": "https://github.com/matter-labs/v3-periphery.git#v1.3.0-zksync-era",
     "zksync-web3": "^0.14.3"
   }
 }
