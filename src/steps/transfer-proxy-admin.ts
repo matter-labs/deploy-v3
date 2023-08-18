@@ -1,4 +1,4 @@
-import ProxyAdmin from 'openzeppelin-solidity/artifacts-zk/contracts/proxy/ProxyAdmin.sol/ProxyAdmin.json'
+import ProxyAdmin from '@openzeppelin/contracts/artifacts-zk/contracts/proxy/ProxyAdmin.sol/ProxyAdmin.json'
 import { Contract } from 'zksync-web3'
 import { MigrationStep } from '../migrations'
 
