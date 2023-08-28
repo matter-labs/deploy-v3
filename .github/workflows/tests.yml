@@ -18,8 +18,21 @@ jobs:
       - name: Set up node
         uses: actions/setup-node@v1
         with:
-          node-version: 12
+          node-version: 16
           registry-url: https://registry.npmjs.org
+
+      - uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+
+      - name: Install test node dependencies
+        run: |
+          sudo apt-get update && sudo apt-get install -y \
+            cmake pkg-config libssl-dev clang
+
+      - name: Install test node
+        run: |
+          cargo install --git https://github.com/matter-labs/era-test-node.git --locked
 
       - name: Set output of cache
         id: yarn-cache
@@ -35,6 +48,10 @@ jobs:
 
       - name: Install dependencies
         run: yarn --frozen-lockfile
+
+      - name: Run test node
+        run: |
+          era_test_node run &
 
       - name: Run unit tests
         run: yarn test

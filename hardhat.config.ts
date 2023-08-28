@@ -1,5 +1,4 @@
 import '@matterlabs/hardhat-zksync-solc'
-import 'hardhat-dependency-compiler'
 import { task } from 'hardhat/config'
 import { deployV3 } from './index'
 
@@ -26,15 +25,6 @@ export default {
   },
   solidity: {
     version: '0.7.6',
-    settings: {
-      optimizer: {
-        enabled: true,
-        runs: 1_000_000,
-      },
-      metadata: {
-        bytecodeHash: 'none',
-      },
-    },
   },
   zksolc: {
     version: '1.3.13',
@@ -44,8 +34,5 @@ export default {
         bytecodeHash: 'none',
       },
     },
-  },
-  dependencyCompiler: {
-    paths: ['v3-periphery-1_3_0/contracts/NonfungibleTokenPositionDescriptor.sol'],
   },
 }
