@@ -1,5 +1,5 @@
 {
-  "name": "@uniswap/deploy-v3",
+  "name": "era-uniswap-deploy-v3",
   "version": "1.0.4",
   "description": "Deploy Uniswap V3 smart contracts on zkSyncEra",
   "publishConfig": {
