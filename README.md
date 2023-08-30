@@ -39,14 +39,14 @@ Usage: yarn hardhat [GLOBAL OPTIONS] deploy-v3 [--confirmations <STRING>] [--gas
 OPTIONS:
 
   --confirmations               How many confirmations to wait for after each transaction (optional) (default: "2")
-  --gas-price                   The gas price to pay in GWEI for each transaction (optional) 
-  --json-rpc                    JSON RPC URL where the program should be deployed 
-  --native-currency-label       Native currency label, e.g. ETH 
-  --owner-address               Contract address that will own the deployed artifacts after the script runs 
-  --private-key                 Private key used to deploy all contracts 
+  --gas-price                   The gas price to pay in GWEI for each transaction (optional)
+  --json-rpc                    JSON RPC URL where the program should be deployed
+  --native-currency-label       Native currency label, e.g. ETH
+  --owner-address               Contract address that will own the deployed artifacts after the script runs
+  --private-key                 Private key used to deploy all contracts
   --state                       Path to the JSON file containing the migrations state (optional) (default: "./state.json")
-  --v2-core-factory-address     The V2 core factory address used in the swap router (optional) 
-  --weth9-address               Address of the WETH9 contract on this chain 
+  --v2-core-factory-address     The V2 core factory address used in the swap router (optional)
+  --weth9-address               Address of the WETH9 contract on this chain
 ```
 
 The script runs a set of migrations, each migration deploying a contract or executing a transaction. Migration state is
