@@ -18,7 +18,7 @@ jobs:
       - name: Set up node
         uses: actions/setup-node@v1
         with:
-          node-version: 12
+          node-version: 16
           registry-url: https://registry.npmjs.org
 
       - name: Set output of cache
@@ -34,7 +34,7 @@ jobs:
             yarn-
 
       - name: Install dependencies
-        run: yarn --frozen-lockfile
+        run: yarn --frozen-lockfile --network-concurrency 1
 
       - name: Run linters
         uses: wearerequired/lint-action@v1

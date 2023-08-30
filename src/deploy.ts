@@ -1,4 +1,4 @@
-import { Signer } from '@ethersproject/abstract-signer'
+import { Wallet } from 'zksync-web3'
 import { BigNumber } from '@ethersproject/bignumber'
 import { migrate } from './migrate'
 import { MigrationState, MigrationStep, StepOutput } from './migrations'
@@ -47,7 +47,7 @@ export default function deploy({
   v2CoreFactoryAddress,
   ownerAddress,
 }: {
-  signer: Signer
+  signer: Wallet
   gasPrice: number | undefined
   weth9Address: string
   nativeCurrencyLabelBytes: string

@@ -1,5 +1,5 @@
-import ProxyAdmin from '@openzeppelin/contracts/build/contracts/ProxyAdmin.json'
-import { Contract } from '@ethersproject/contracts'
+import ProxyAdmin from 'era-openzeppelin-contracts/artifacts-zk/contracts/proxy/ProxyAdmin.sol/ProxyAdmin.json'
+import { Contract } from 'zksync-web3'
 import { MigrationStep } from '../migrations'
 
 export const TRANSFER_PROXY_ADMIN: MigrationStep = async (state, { signer, gasPrice, ownerAddress }) => {

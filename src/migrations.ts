@@ -1,4 +1,4 @@
-import { Signer } from '@ethersproject/abstract-signer'
+import { Wallet } from 'zksync-web3'
 import { BigNumber } from '@ethersproject/bignumber'
 import { GenericMigrationStep } from './migrate'
 
@@ -20,7 +20,7 @@ export interface MigrationState {
 export type StepOutput = { message: string; hash?: string; address?: string }
 
 export type MigrationConfig = {
-  signer: Signer
+  signer: Wallet
   gasPrice: BigNumber | undefined
   weth9Address: string
   nativeCurrencyLabelBytes: string

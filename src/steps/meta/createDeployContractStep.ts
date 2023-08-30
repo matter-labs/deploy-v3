@@ -1,48 +1,52 @@
-import { Contract, ContractInterface, ContractFactory } from '@ethersproject/contracts'
+import * as zk from 'zksync-web3'
+import * as ethers from 'ethers'
+import { ZkSyncArtifact } from '@matterlabs/hardhat-zksync-deploy/src/types'
 import { MigrationConfig, MigrationState, MigrationStep } from '../../migrations'
-import linkLibraries from '../../util/linkLibraries'
 
 type ConstructorArgs = (string | number | string[] | number[])[]
 
 export default function createDeployContractStep({
   key,
-  artifact: { contractName, abi, bytecode, linkReferences },
-  computeLibraries,
+  computeArtifact,
   computeArguments,
 }: {
   key: keyof MigrationState
-  artifact: {
-    contractName: string
-    abi: ContractInterface
-    bytecode: string
-    linkReferences?: { [fileName: string]: { [contractName: string]: { length: number; start: number }[] } }
-  }
-  computeLibraries?: (state: Readonly<MigrationState>, config: MigrationConfig) => { [libraryName: string]: string }
+  computeArtifact: (
+    state: Readonly<MigrationState>,
+    config: MigrationConfig
+  ) => Promise<{
+    artifact: ZkSyncArtifact
+    factoryDepsArtifacts?: ZkSyncArtifact[]
+  }>
   computeArguments?: (state: Readonly<MigrationState>, config: MigrationConfig) => ConstructorArgs
 }): MigrationStep {
-  if (linkReferences && Object.keys(linkReferences).length > 0 && !computeLibraries) {
-    throw new Error('Missing function to compute library addresses')
-  } else if (computeLibraries && (!linkReferences || Object.keys(linkReferences).length === 0)) {
-    throw new Error('Compute libraries passed but no link references')
-  }
-
   return async (state, config) => {
+    let { artifact, factoryDepsArtifacts } = await computeArtifact(state, config)
+    factoryDepsArtifacts = factoryDepsArtifacts ? factoryDepsArtifacts : []
+
     if (state[key] === undefined) {
       const constructorArgs: ConstructorArgs = computeArguments ? computeArguments(state, config) : []
+      if (artifact.linkReferences && Object.keys(artifact.linkReferences).length > 0) {
+        throw new Error('Link references should be empty for ZkSyncArtifact')
+      }
 
-      const factory = new ContractFactory(
-        abi,
-        linkReferences && computeLibraries
-          ? linkLibraries({ bytecode, linkReferences }, computeLibraries(state, config))
-          : bytecode,
-        config.signer
-      )
+      const visited = new Set<string>()
+      visited.add(`${artifact.sourceName}:${artifact.contractName}`)
+      let factoryDeps: string[] = extractFactoryDeps(artifact, factoryDepsArtifacts, visited)
 
-      let contract: Contract
+      const factory = new zk.ContractFactory(artifact.abi, artifact.bytecode, config.signer)
+
+      let contract: zk.Contract
       try {
-        contract = await factory.deploy(...constructorArgs, { gasPrice: config.gasPrice })
+        contract = await factory.deploy(...constructorArgs, {
+          maxFeePerGas: config.gasPrice,
+          maxPriorityFeePerGas: 0,
+          customData: {
+            factoryDeps,
+          },
+        })
       } catch (error) {
-        console.error(`Failed to deploy ${contractName}`)
+        console.error(`Failed to deploy ${artifact.contractName}`)
         throw error
       }
 
@@ -50,13 +54,45 @@ export default function createDeployContractStep({
 
       return [
         {
-          message: `Contract ${contractName} deployed`,
+          message: `Contract ${artifact.contractName} deployed`,
           address: contract.address,
+          constructorArgs: constructorArgs,
           hash: contract.deployTransaction.hash,
         },
       ]
     } else {
-      return [{ message: `Contract ${contractName} was already deployed`, address: state[key] }]
+      return [{ message: `Contract ${artifact.contractName} was already deployed`, address: state[key] }]
     }
   }
+}
+
+function extractFactoryDeps(
+  artifact: ZkSyncArtifact,
+  knownArtifacts: ZkSyncArtifact[],
+  visited: Set<string>
+): string[] {
+  const factoryDeps: string[] = []
+
+  for (const dependencyHash in artifact.factoryDeps) {
+    const dependencyContract = artifact.factoryDeps[dependencyHash]
+
+    if (!visited.has(dependencyContract)) {
+      const dependencyArtifact = knownArtifacts.find((dependencyArtifact) => {
+        return (
+          dependencyArtifact.sourceName + ':' + dependencyArtifact.contractName === dependencyContract &&
+          ethers.utils.hexlify(zk.utils.hashBytecode(dependencyArtifact.bytecode)) === dependencyHash
+        )
+      })
+      if (dependencyArtifact === undefined) {
+        throw new Error('Dependency: `' + dependencyContract + '` is not found')
+      }
+
+      factoryDeps.push(dependencyArtifact.bytecode)
+      visited.add(dependencyContract)
+      const transitiveDeps = extractFactoryDeps(dependencyArtifact, knownArtifacts, visited)
+      factoryDeps.push(...transitiveDeps)
+    }
+  }
+
+  return factoryDeps
 }

@@ -1,15 +1,20 @@
-import NonfungibleTokenPositionDescriptor from 'v3-periphery-1_3_0/artifacts/contracts/NonfungibleTokenPositionDescriptor.sol/NonfungibleTokenPositionDescriptor.json'
 import createDeployContractStep from './meta/createDeployContractStep'
 
 export const DEPLOY_NFT_POSITION_DESCRIPTOR_V1_3_0 = createDeployContractStep({
   key: 'nonfungibleTokenPositionDescriptorAddressV1_3_0',
-  artifact: NonfungibleTokenPositionDescriptor,
-  computeLibraries(state) {
+  async computeArtifact(state) {
     if (state.nftDescriptorLibraryAddressV1_3_0 === undefined) {
       throw new Error('NFTDescriptor library missing')
     }
+    const hre = require('hardhat')
+    hre.config.zksolc.settings.libraries = {
+      'v3-periphery-1_3_0/contracts/libraries/NFTDescriptor.sol': {
+        NFTDescriptor: state.nftDescriptorLibraryAddressV1_3_0,
+      },
+    }
+    await hre.run('compile')
     return {
-      NFTDescriptor: state.nftDescriptorLibraryAddressV1_3_0,
+      artifact: hre.artifacts.readArtifactSync('NonfungibleTokenPositionDescriptor'),
     }
   },
   computeArguments(_, { weth9Address, nativeCurrencyLabelBytes }) {

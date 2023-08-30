@@ -1,9 +1,14 @@
-import SwapRouter02 from '@uniswap/swap-router-contracts/artifacts/contracts/SwapRouter02.sol/SwapRouter02.json'
+import SwapRouter02 from '@uniswap/swap-router-contracts/artifacts-zk/contracts/SwapRouter02.sol/SwapRouter02.json'
 import createDeployContractStep from './meta/createDeployContractStep'
+import { ZkSyncArtifact } from '@matterlabs/hardhat-zksync-deploy/src/types'
 
 export const DEPLOY_V3_SWAP_ROUTER_02 = createDeployContractStep({
   key: 'swapRouter02',
-  artifact: SwapRouter02,
+  async computeArtifact() {
+    return {
+      artifact: SwapRouter02 as ZkSyncArtifact,
+    }
+  },
   computeArguments(state, config) {
     if (state.v3CoreFactoryAddress === undefined) {
       throw new Error('Missing V3 Core Factory')
