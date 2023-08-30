@@ -47,7 +47,7 @@ jobs:
             yarn-
 
       - name: Install dependencies
-        run: yarn --frozen-lockfile
+        run: yarn --frozen-lockfile --network-concurrency 1
 
       - name: Run test node
         run: |
