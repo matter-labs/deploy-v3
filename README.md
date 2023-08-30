@@ -34,7 +34,7 @@ Get the arguments for running the latest version of the script via `yarn start -
 As of `v1.0.4` the arguments are:
 
 ```text
-Usage: yarn hardhat [GLOBAL OPTIONS] deploy-v3 [--confirmations <STRING>] [--gas-price <STRING>] --json-rpc <STRING> --native-currency-label <STRING> --owner-address <STRING> --private-key <STRING> [--state <STRING>] [--v2-core-factory-address <STRING>] --weth9-address <STRING>
+Usage: yarn start [--confirmations <STRING>] [--gas-price <STRING>] --json-rpc <STRING> --native-currency-label <STRING> --owner-address <STRING> --private-key <STRING> [--state <STRING>] [--v2-core-factory-address <STRING>] --weth9-address <STRING>
 
 OPTIONS:
 
