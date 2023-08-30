@@ -26,7 +26,6 @@ Note: [`setContentHash`](https://docs.ens.domains/contract-api-reference/publicr
 
 These contract function calls should ultimately be encoded into a governance proposal, about which more details are available [here](https://docs.uniswap.org/protocol/concepts/governance/overview).
 
-
 ## Usage
 
 This package vends a CLI for executing a deployment script that results in a full deployment of Uniswap Protocol v3.
