@@ -110,5 +110,3 @@ dist
 # hardhat
 artifacts-zk/
 cache-zk/
-
-run.txt
