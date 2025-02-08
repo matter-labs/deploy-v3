@@ -17,19 +17,28 @@ export default function createDeployLibraryStep({
 
       const factory = new ContractFactory(artifact.abi, artifact.bytecode, signer)
 
-      const library = await factory.deploy({
-        maxFeePerGas: gasPrice,
-        maxPriorityFeePerGas: 0,
-      })
-      state[key] = library.address
+      try {
+        const library = await factory.deploy({
+          gasPrice: gasPrice, // Use gasPrice instead of maxFeePerGas
+          // Remove maxPriorityFeePerGas
+          // Remove customData.factoryDeps if not necessary
+        })
 
-      return [
-        {
-          message: `Library ${artifact.contractName} deployed`,
-          address: library.address,
-          hash: library.deployTransaction.hash,
-        },
-      ]
+        await library.deployed()
+
+        state[key] = library.address
+
+        return [
+          {
+            message: `Library ${artifact.contractName} deployed`,
+            address: library.address,
+            hash: library.deployTransaction.hash,
+          },
+        ]
+      } catch (error) {
+        console.error(`Failed to deploy library ${artifact.contractName}:`, error)
+        throw error
+      }
     } else {
       return [{ message: `Library ${artifact.contractName} was already deployed`, address: state[key] }]
     }

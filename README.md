@@ -2,6 +2,18 @@
 
 This package includes a CLI script for deploying the latest Uniswap V3 smart contracts to zkSync Era.
 
+This fork has been updated to be compatible with the Lens Network. The scripts and dependencies have been updated but the contracts remain the same. `state.json` has the current deployment.
+
+# Integration
+
+**The most recent deployments to the Lens Network sandbox are saved in `state.json`**
+
+Guides for integrating with the Uniswap contracts via javascript for fetching prices, creating and executing trades and managing liquidity pools can be found on their [docs page](https://docs.uniswap.org/). Whenever they reference a smart contract address such as `QUOTER_CONTRACT_ADDRESS` simply use the appropriate one from `state.json` (in this case `quoterV2Address`) and a Lens Sandbox rpc url.
+
+For referencing the zkSync version of any contracts refer to the [Uniswap zkSync organization on Github](https://github.com/uniswap-zksync).
+
+# Misc.
+
 ## Licensing
 
 Please note that Uniswap V3 is under [BUSL license](https://github.com/Uniswap/v3-core#licensing) until the Change Date, currently 2023-04-01. Exceptions to the license may be specified by Uniswap Governance via Additional Use Grants, which can, for example, allow V3 to be deployed on new chains. Please follow the [Uniswap Governance process](https://gov.uniswap.org/t/community-governance-process/7732) to request a DAO vote for exceptions to the license, or to move up the Change Date.

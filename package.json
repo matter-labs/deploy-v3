@@ -26,22 +26,23 @@
     "url": "https://github.com/uniswap-zksync/era-uniswap-deploy-v3/issues"
   },
   "devDependencies": {
-    "@ethersproject/abstract-signer": "^5.5.0",
-    "@ethersproject/address": "^5.5.0",
-    "@ethersproject/bignumber": "^5.5.0",
-    "@ethersproject/constants": "^5.5.0",
-    "@ethersproject/contracts": "^5.5.0",
-    "@ethersproject/providers": "^5.5.1",
-    "@ethersproject/wallet": "^5.5.0",
-    "@matterlabs/hardhat-zksync-deploy": "^0.6.3",
-    "@matterlabs/hardhat-zksync-solc": "^0.3.17",
+    "@ethersproject/abstract-signer": "^5.7.0",
+    "@ethersproject/address": "^5.7.0",
+    "@ethersproject/bignumber": "^5.7.0",
+    "@ethersproject/constants": "^5.7.0",
+    "@ethersproject/contracts": "^5.7.0",
+    "@ethersproject/providers": "^5.7.2",
+    "@ethersproject/wallet": "^5.7.0",
+    "@matterlabs/hardhat-zksync-deploy": "^1.5.0",
+    "@matterlabs/hardhat-zksync-solc": "^1.2.2",
     "@types/chai": "^4.2.12",
     "@types/mocha": "^8.0.3",
     "@types/node": "^14.6.3",
-    "@uniswap/sdk-core": "^1.0.8",
+    "@uniswap/sdk-core": "^5.3.1",
     "@uniswap/swap-router-contracts": "https://github.com/uniswap-zksync/era-uniswap-swap-router-contracts.git#v1.1.0-zksync-era",
     "@uniswap/v3-core": "https://github.com/uniswap-zksync/era-uniswap-v3-core.git#v1.0.0-zksync-era",
     "@uniswap/v3-periphery": "https://github.com/uniswap-zksync/era-uniswap-v3-periphery.git#v1.1.1-zksync-era",
+    "@uniswap/v3-sdk": "^3.21.0",
     "@uniswap/v3-staker": "https://github.com/uniswap-zksync/era-uniswap-v3-staker.git#v1.0.2-zksync-era",
     "chai": "^4.2.0",
     "era-openzeppelin-contracts": "https://github.com/uniswap-zksync/era-openzeppelin-contracts.git#v3.4.1-solc-0.7-2-zksync-era",
@@ -53,6 +54,7 @@
     "ts-node": "^9.0.0",
     "typescript": "^4.0.2",
     "v3-periphery-1_3_0": "https://github.com/uniswap-zksync/era-uniswap-v3-periphery.git#v1.3.0-zksync-era",
-    "zksync-web3": "^0.14.3"
+    "zksync-ethers": "^5.10.0",
+    "zksync-web3": "^0.17.1"
   }
 }

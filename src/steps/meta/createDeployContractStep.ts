@@ -39,14 +39,14 @@ export default function createDeployContractStep({
       let contract: zk.Contract
       try {
         contract = await factory.deploy(...constructorArgs, {
-          maxFeePerGas: config.gasPrice,
-          maxPriorityFeePerGas: 0,
+          gasPrice: config.gasPrice, // Use gasPrice instead of maxFeePerGas
           customData: {
-            factoryDeps,
+            // Remove factoryDeps if not necessary
+            // factoryDeps,
           },
         })
       } catch (error) {
-        console.error(`Failed to deploy ${artifact.contractName}`)
+        console.error(`Failed to deploy ${artifact.contractName}:`, error)
         throw error
       }
 
